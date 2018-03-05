@@ -1,0 +1,25 @@
+---
+Successfully
+---
+luobodeMacBook-Pro:supl-cts luobo$ python3 tls_client.py 
+{'subject': ((('countryName', 'US'),), (('stateOrProvinceName', 'Mars'),), (('localityName', 'iTranswarp'),), (('organizationName', 'iTranswarp'),), (('organizationalUnitName', 'iTranswarp'),), (('commonName', 'server'),)), 'issuer': ((('countryName', 'US'),), (('stateOrProvinceName', 'Mars'),), (('localityName', 'iTranswarp'),), (('organizationName', 'iTranswarp'),), (('organizationalUnitName', 'iTranswarp'),), (('commonName', 'rootca'),)), 'version': 1, 'serialNumber': 'C7FA7236A884E816', 'notBefore': 'Mar  4 13:22:49 2018 GMT', 'notAfter': 'Mar  4 13:22:49 2019 GMT'}
+
+
+---
+server_hostname doesn't match
+---
+luobodeMacBook-Pro:supl-cts luobo$ python3 tls_client.py 
+Traceback (most recent call last):
+  File "tls_client.py", line 9, in <module>
+    conn.connect(("192.168.1.11", 7275))
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/ssl.py", line 1100, in connect
+    self._real_connect(addr, False)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/ssl.py", line 1091, in _real_connect
+    self.do_handshake()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/ssl.py", line 1068, in do_handshake
+    self._sslobj.do_handshake()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/ssl.py", line 694, in do_handshake
+    match_hostname(self.getpeercert(), self.server_hostname)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/ssl.py", line 331, in match_hostname
+    % (hostname, dnsnames[0]))
+ssl.CertificateError: hostname 'server123' doesn't match 'server'
